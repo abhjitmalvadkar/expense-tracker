@@ -1,0 +1,14 @@
+<div
+  [class.selected]="isActive"
+  (click)="navigateTo(option.link)"
+  class="each-item flex row justify-start items-center"
+>
+  <div
+    class="flex row justify-between items-center ml-[2rem]"
+  >
+    <div class="label">
+      {{option.label}}
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,38 @@
+<div class="app-header">
+  <div class="logo">
+    Expense Tracker
+  </div>
+  <div [class.hidden]="screenType !== 'mobile'" class="mobile-menu">
+    <div class="button-panel flex row gap-[1rem]">
+      <button [matMenuTriggerFor]="menu" mat-button>
+        <i
+          class="fa fa-solid fa-bars icon edit-icon"
+          matTooltip="Menu"
+        ></i></button>
+      <mat-menu #menu="matMenu" yPosition="below">
+        <button (click)="navigateToExpenseView()" mat-menu-item>Expenses</button>
+        <button (click)="navigateToProfileView()" mat-menu-item>Profile</button>
+        <button (click)="logout()" mat-menu-item>Logout</button>
+      </mat-menu>
+    </div>
+  </div>
+  <div [class.hidden]="screenType === 'mobile'" class="desktop-menu">
+    <div class="button-panel flex row gap-[1rem]">
+      <button (click)="logout()" mat-button>
+        <i
+          (click)="logout()"
+          class="fa fa-solid fa-power-off icon edit-icon"
+          matTooltip="Logout"
+        ></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="app-content relative flex row w-full border">
+  <app-side-nav-list
+    [class.hidden]="screenType === 'mobile'"
+    class="sidenav-list"
+  ></app-side-nav-list>
+  <router-outlet></router-outlet>
+</div>

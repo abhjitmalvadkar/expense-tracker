@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Padding Group 3</title>
+  <defs>
+    <path
+      d="M5.51706164,7.06798676 L0.19259589,1.74349361 C-0.0641986301,1.48669909 -0.0641986301,1.07037033 0.19259589,0.813603202 L0.813609589,0.192589503 C1.06996575,-0.063766661 1.48544521,-0.0642598117 1.74240411,0.191493613 L5.98202055,4.41124704 L10.2216096,0.191493613 C10.4785685,-0.0642598117 10.8940479,-0.063766661 11.1504041,0.192589503 L11.7714178,0.813603202 C12.0282123,1.07039772 12.0282123,1.48672649 11.7714178,1.74349361 L6.44697945,7.06798676 C6.19018493,7.32475389 5.77385616,7.32475389 5.51706164,7.06798676 Z"
+      id="path-1"></path>
+  </defs>
+  <g id="Coach" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="invite_Stanford-Admin-Coach01" transform="translate(-1202.500000, -128.500000)">
+      <g id="Stacked-Group-2-Copy-2" transform="translate(267.000000, 115.000000)">
+        <g id="Stacked-Group" transform="translate(172.000000, 0.000000)">
+          <g id="Padding-Group-14" transform="translate(100.000000, 0.000000)">
+            <g id="Stacked-Group" transform="translate(16.000000, 12.000000)">
+              <g id="Padding-Group-3" transform="translate(648.000000, 2.000000)">
+                <rect id="Background" stroke="#1E282A" stroke-width="0.5" fill="#00B0F0" x="-0.25" y="-0.25"
+                      width="24.5" height="24.5" rx="12.25"></rect>
+                <g id="Solid/eye" transform="translate(6.017979, 8.369712)">
+                  <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                  </mask>
+                  <g id="Mask"></g>
+                  <g id="🎨-color" mask="url(#mask-2)" fill="#FFFFFF">
+                    <g transform="translate(-0.017979, -2.369712)" id="White">
+                      <rect x="0" y="0" width="12" height="12"></rect>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+.page-wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url('/assets/images/webp/expense.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.login-form {
+  border-radius: 0.5rem;
+  width: 33rem;
+  box-shadow: 0 0 2rem #3a3a3a;
+}
+
+.desktop .login-form {
+  position: absolute;
+  right: calc(25% - 16.5rem);
+}

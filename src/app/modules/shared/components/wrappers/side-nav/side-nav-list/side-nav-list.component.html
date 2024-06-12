@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <app-side-nav-item
+    *ngFor="let eachOption of options; let i = index"
+    [id]="eachOption.id"
+    [option]="eachOption"
+  ></app-side-nav-item>
+</div>

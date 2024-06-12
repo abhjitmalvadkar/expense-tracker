@@ -1,0 +1,53 @@
+.manage-user-card {
+  border-left: 0.7rem solid #00B0F0;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.5rem #373E46;
+  font-size: 1.8rem;
+}
+
+.row {
+  min-width: 100%;
+}
+
+.action-icon {
+  font-size: 2.4rem;
+  color: #00B0F0;
+}
+
+.delete-icon,
+.edit-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.edit-icon {
+  margin-top: 0.1rem;
+  color: #00B0F0;
+}
+
+.delete-icon {
+  color: #F50303;
+}
+
+.no-data {
+  height: 25rem;
+  background: #CCCCCC;
+  font-size: 1.6rem;
+}
+
+
+@media (max-width: 374.98px) {
+  .content-row,
+  .label,
+  .value {
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  .content,
+  .actions {
+    width: 100% !important;
+  }
+}

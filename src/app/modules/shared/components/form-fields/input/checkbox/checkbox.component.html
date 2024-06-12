@@ -1,0 +1,24 @@
+<div
+  *ngIf="parentFormGroup &&
+          parentFormGroup.controls &&
+          parentFormGroup.controls[this.controlName] && options?.length"
+  class="flex flex-col w-full"
+>
+  <ul
+    class="checkbox-list-section"
+    [ngStyle]="{
+      'column-count': columnsToDisplay
+    }"
+  >
+    <li *ngFor="let item of options">
+      <mat-checkbox
+        [ngModel]="parentFormGroup.controls[this.controlName].value &&
+        parentFormGroup.controls[this.controlName].value.indexOf(item.key)>=0"
+        (ngModelChange)="update($event,item.key)"
+      >
+        {{item.value || item.label}}
+      </mat-checkbox>
+    </li>
+  </ul>
+  <mat-error *ngIf="error">{{error}}</mat-error>
+</div>

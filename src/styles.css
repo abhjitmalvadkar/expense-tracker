@@ -1,0 +1,499 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/******************************
+******************************
+******************************
+        FONT FAMILY
+*******************************
+*******************************
+*******************************/
+
+/*****************************/
+/*         WORK SANS         */
+/*****************************/
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-Thin'),
+  url(assets/font-family/work-sans/WorkSans-Thin.ttf) format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-ThinItalic'),
+  url(assets/font-family/work-sans/WorkSans-ThinItalic.ttf) format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-ExtraLight'),
+  url(assets/font-family/work-sans/WorkSans-ExtraLight.ttf) format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-ExtraLightItalic'),
+  url(assets/font-family/work-sans/WorkSans-ExtraLightItalic.ttf) format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-Light'),
+  url(assets/font-family/work-sans/WorkSans-Light.ttf) format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-LightItalic'),
+  url(assets/font-family/work-sans/WorkSans-LightItalic.ttf) format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-Regular'),
+  url(assets/font-family/work-sans/WorkSans-Regular.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-Italic'),
+  url(assets/font-family/work-sans/WorkSans-Italic.ttf) format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-Medium'),
+  url(assets/font-family/work-sans/WorkSans-Medium.ttf) format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-MediumItalic'),
+  url(assets/font-family/work-sans/WorkSans-MediumItalic.ttf) format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-SemiBold'),
+  url(assets/font-family/work-sans/WorkSans-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-SemiBoldItalic'),
+  url(assets/font-family/work-sans/WorkSans-SemiBoldItalic.ttf) format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-Bold'),
+  url(assets/font-family/work-sans/WorkSans-Bold.ttf) format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-BoldItalic'),
+  url(assets/font-family/work-sans/WorkSans-BoldItalic.ttf) format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-ExtraBold'),
+  url(assets/font-family/work-sans/WorkSans-ExtraBold.ttf) format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-ExtraBoldItalic'),
+  url(assets/font-family/work-sans/WorkSans-ExtraBoldItalic.ttf) format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-Black'),
+  url(assets/font-family/work-sans/WorkSans-Black.ttf) format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: local('WorkSans-BlackItalic'),
+  url(assets/font-family/work-sans/WorkSans-BlackItalic.ttf) format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+/******************************
+******************************
+******************************
+        MEDIA QUERIES
+*******************************
+*******************************
+*******************************/
+
+
+/******************************
+          REM BASE
+*******************************/
+
+@media (max-width: 599.98px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1919.98px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1920px) and (max-width: 2559.98px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 2560px) and (max-width: 3439.98px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 3440px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+/******************************
+******************************
+******************************
+        GLOBAL
+*******************************
+*******************************
+*******************************/
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: WorkSans, serif;
+}
+
+body {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/******************************
+******************************
+******************************
+      BASE COMPONENTS
+*******************************
+*******************************
+*******************************/
+
+/******************************
+          Dialog Box
+*******************************/
+
+.cdk-overlay-connected-position-bounding-box {
+  z-index: 1002;
+}
+
+.cdk-overlay-pane {
+  max-width: unset !important;
+}
+
+.xs .cdk-dialog-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.xs .mat-mdc-dialog-content {
+  max-height: unset;
+  height: 100%;
+}
+
+.sm .cdk-dialog-container {
+  width: 80vw;
+  max-height: 90vh;
+}
+
+.md .cdk-dialog-container,
+.lg .cdk-dialog-container,
+.xl .cdk-dialog-container {
+  width: 58vw;
+  max-height: 90vh;
+}
+
+body:not(.sm):not(.xs) .panel-width-10 .cdk-dialog-container {
+  width: 10vw;
+}
+
+body:not(.sm):not(.xs) .panel-width-20 .cdk-dialog-container {
+  width: 20vw;
+}
+
+body:not(.sm):not(.xs) .panel-width-30 .cdk-dialog-container {
+  width: 30vw;
+}
+
+body:not(.sm):not(.xs) .panel-width-40 .cdk-dialog-container {
+  width: 40vw;
+}
+
+body:not(.sm):not(.xs) .panel-width-50 .cdk-dialog-container {
+  width: 50vw;
+}
+
+body:not(.sm):not(.xs) .panel-width-60 .cdk-dialog-container {
+  width: 60vw;
+}
+
+body:not(.sm):not(.xs) .panel-width-70 .cdk-dialog-container {
+  width: 70vw;
+}
+
+body:not(.sm):not(.xs) .panel-width-80 .cdk-dialog-container {
+  width: 80vw;
+}
+
+body:not(.sm):not(.xs) .panel-width-90 .cdk-dialog-container {
+  width: 90vw;
+}
+
+body:not(.sm):not(.xs) .panel-width-100 .cdk-dialog-container {
+  width: 100vw;
+}
+
+.add-edit-user-dialog .mat-mdc-dialog-content {
+  overflow: hidden;
+}
+
+/******************************
+          DROPDOWN
+*******************************/
+.mdc-list-item:hover,
+.mdc-list-item--selected,
+.mdc-list-item.mat-mdc-option-active {
+  background: rgba(41, 113, 111, 0.1) !important;
+}
+
+.mdc-list-item--selected [class^='mdc-list-item__'] {
+  color: #00B0F0 !important;
+}
+
+.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after {
+  color: #00B0F0 !important;
+}
+
+.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full {
+  background: #00B0F0 !important;
+}
+
+.cdk-overlay-transparent-backdrop {
+  z-index: 1002 !important;
+}
+
+.cdk-overlay-connected-position-bounding-box {
+  z-index: 1002;
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  z-index: 1001;
+}
+
+/******************************
+      Notification Popup
+*******************************/
+
+.cdk-global-overlay-wrapper {
+  z-index: 1001 !important;
+}
+
+.mat-mdc-snack-bar-container {
+  border-radius: 1rem !important;
+}
+
+.mat-mdc-snack-bar-container .mat-simple-snackbar span {
+  font-size: 1.7rem !important;
+  word-break: break-all;
+}
+
+.mat-mdc-snack-bar-container.danger .mdc-snackbar__surface {
+  background: rgba(255, 0, 0, 1) !important;
+}
+
+.mat-mdc-snack-bar-container.warning .mdc-snackbar__surface {
+  background: rgba(253, 178, 31, 1) !important;
+}
+
+.mat-mdc-snack-bar-container.success .mdc-snackbar__surface {
+  background: rgba(60, 179, 113, 1) !important;
+}
+
+.mdc-snackbar.mdc-snackbar--open.danger {
+  margin-top: 7rem;
+}
+
+.mat-datetimepicker-calendar-header {
+  background: #00B0F0;
+}
+
+.mat-datetimepicker-calendar-body-selected {
+  background: #00B0F0;
+  color: #FFFFFF !important;
+}
+
+.mat-datetimepicker-clock-cell-selected {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  background: #00B0F0 !important;
+}
+
+.user-menu {
+  margin-top: 1.8rem;
+  margin-right: -1.5rem;
+}
+
+.page-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #00B0F0;
+}
+
+.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after {
+  color: #00B0F0 !important;
+}
+
+.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full {
+  background: #00B0F0 !important;
+}
+
+
+.mdc-checkbox {
+  --mdc-checkbox-selected-checkmark-color: #FFFFFF !important;
+  --mdc-checkbox-selected-pressed-icon-color: #00B0F0 !important;
+  --mdc-checkbox-selected-focus-icon-color: #00B0F0 !important;
+  --mdc-checkbox-selected-icon-color: #00B0F0 !important;
+  --mdc-checkbox-selected-hover-icon-color: #00B0F0 !important;
+  --mat-mdc-checkbox-checked-ripple-color: #00B0F0 !important;
+  --mdc-checkbox-selected-focus-state-layer-color: #00B0F0 !important;
+  --mdc-checkbox-selected-hover-state-layer-color: #00B0F0 !important;
+  --mdc-checkbox-selected-pressed-state-layer-color: #00B0F0 !important;
+}
+
+.loader-panel .mat-mdc-dialog-surface {
+  background-color: transparent !important;
+}
+
+.mdc-switch__icons {
+  display: none;
+}
+
+.mat-mdc-slide-toggle.mat-accent {
+  --mdc-switch-selected-focus-state-layer-color: #00B0F0 !important;
+  --mdc-switch-selected-handle-color: #00B0F0 !important;
+  --mdc-switch-selected-hover-state-layer-color: #00B0F0 !important;
+  --mdc-switch-selected-pressed-state-layer-color: #00B0F0 !important;
+  --mdc-switch-selected-focus-handle-color: #007AA6 !important;
+  --mdc-switch-selected-hover-handle-color: #007AA6 !important;
+  --mdc-switch-selected-pressed-handle-color: #007AA6 !important;
+  --mdc-switch-selected-focus-track-color: rgba(0, 179, 255, 0.4) !important;
+  --mdc-switch-selected-hover-track-color: rgba(0, 179, 255, 0.4) !important;
+  --mdc-switch-selected-pressed-track-color: rgba(0, 179, 255, 0.4) !important;
+  --mdc-switch-selected-track-color: rgba(0, 179, 255, 0.4) !important;
+}
+
+/******************************
+      TOOL TIP
+*******************************/
+.mat-mdc-tooltip .mdc-tooltip__surface {
+  background: #FFFFFF !important;
+  color: #373E46 !important;
+  font-weight: 400 !important;
+  font-size: 1.2rem !important;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5) !important;
+  max-width: unset !important;
+}
+
+.mdc-tooltip {
+  white-space: pre-line !important;
+}
+
+
+/******************************
+      TOOL TIP
+*******************************/
+.select-all-option .mdc-checkbox__ripple {
+  display: none;
+}
+
+.select-all-option .mdc-label {
+  font-size: 1.6rem;
+}
+
+
+.cdk-overlay-pane .currency-selector-options-list {
+  padding: unset !important;
+  border-radius: 0.5rem !important;
+  transform: translate(-30px, 0) !important;
+}
+
+.currency-selector-options-list .mat-mdc-option {
+  min-height: unset !important;
+  height: 4rem !important;
+}
+
+.cdk-overlay-pane {
+  width: unset !important;
+}

@@ -1,0 +1,27 @@
+<div class="page-wrapper p-[2rem]">
+  <div class="logo-container">
+    <img
+      [src]="userProfileDetails?.imageUrl"
+      class="w-[20rem] h-[20rem] block border"
+    >
+  </div>
+  <div class="user-name flex flex-row justify-start items-center gap-[1rem]">
+    {{ userProfileDetails?.name }}
+    <span>
+      <i
+        (click)="edit()"
+        class="fa fa-pencil icon edit-icon"
+        matTooltip="Edit Client Details"
+      ></i>
+    </span>
+  </div>
+  <div
+    class="details flex md:flex-row xs:flex-col justify-start sm:justify-between lg:justify-start items-start  xs:gap-[3rem] sm:gap-[2rem] md:gap-[1rem]">
+    <div class="settings-info flex flex-col gap-[1rem] w-full">
+      <div class="row flex flex-row justify-start items-center gap-[1rem]">
+        <div class="label">Email Address:</div>
+        <div class="value">{{ userProfileDetails?.emailId }}</div>
+      </div>
+    </div>
+  </div>
+</div>

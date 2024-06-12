@@ -1,0 +1,25 @@
+
+:host ::ng-deep .mat-mdc-select-arrow-wrapper {
+  padding-left: 0.5rem;
+}
+
+:host ::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: transparent;
+  padding-left: 0;
+}
+
+:host ::ng-deep .mat-mdc-form-field-infix {
+  padding: 0 !important;
+  width: unset;
+  min-height: unset;
+}
+
+:host ::ng-deep .mat-mdc-select-value-text {
+  font-size: 1.6rem;
+  position: relative;
+}
+
+:host ::ng-deep .mdc-notched-outline,
+:host ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}

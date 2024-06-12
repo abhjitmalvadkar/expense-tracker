@@ -1,0 +1,64 @@
+<ng-container
+  *ngFor="let eachCard of dataSource"
+>
+  <div
+    class="manage-user-card flex flex-row justify-between items-start flex-wrap"
+  >
+    <div
+      class="content flex flex-col w-9/12 gap-y-[1rem]"
+    >
+      <div
+        class="content-row flex flex-row flex-wrap gap-[1.5rem]"
+      >
+        <div class="label flex w-[40%] break-word">
+          Date
+        </div>
+        <div class="value flex w-[calc(60%-1.5rem)] break-word">
+          {{eachCard.date | date}}
+        </div>
+      </div>
+      <div
+        class="content-row flex flex-row flex-wrap gap-[1.5rem]"
+      >
+        <div class="label flex w-[40%] break-word">
+          Expense
+        </div>
+        <div class="value flex w-[calc(60%-1.5rem)] break-word">
+          {{eachCard.expense}}
+        </div>
+      </div>
+      <div
+        class="content-row flex flex-row flex-wrap gap-[1.5rem]"
+      >
+        <div class="label flex w-[40%] break-word">
+          Amount
+        </div>
+        <div class="value flex w-[calc(60%-1.5rem)] break-word">
+          {{eachCard.amount}}
+        </div>
+      </div>
+    </div>
+    <div
+      class="actions flex justify-end items-start gap-[1rem] w-3/12"
+    >
+      <i
+        (click)="edit(eachCard)"
+        aria-hidden="true"
+        class="fa fa-pencil edit-icon action-icon"
+        matTooltip="Edit User"
+      ></i>
+      <i
+        (click)="delete(eachCard)"
+        class="fa fa-trash delete-icon action-icon"
+        matTooltip="Delete User"
+      ></i>
+    </div>
+  </div>
+
+</ng-container>
+<div
+  *ngIf="!loading && !dataSource.length"
+  class="no-data survey-version-card flex justify-center items-center"
+>
+  No data matching the filter.
+</div>

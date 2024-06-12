@@ -1,0 +1,54 @@
+:host ::ng-deep th {
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.4rem;
+  background: #00B0F0 !important;
+  text-align: center;
+}
+
+:host ::ng-deep td {
+  min-height: 3.6rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.action-icon {
+  color: #00B0F0;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.action-icon.disabled {
+  color: #CCCCCC;
+  cursor: auto;
+}
+
+.no-data {
+  height: 25rem;
+  background: #CCCCCC;
+}
+
+.delete-icon,
+.edit-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.edit-icon {
+  margin-top: 0.1rem;
+  color: #00B0F0;
+}
+
+.delete-icon {
+  color: red;
+}
+
+.logo {
+  height: 5rem;
+  width: 5rem;
+}
+
+:host ::ng-deep .mat-column-logo {
+  text-align: center;
+}

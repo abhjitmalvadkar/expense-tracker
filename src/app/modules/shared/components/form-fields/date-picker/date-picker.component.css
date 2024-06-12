@@ -1,0 +1,14 @@
+:host .form-field ::ng-deep .mdc-text-field--disabled .mat-icon {
+  opacity: 40%;
+}
+
+:host .small .mat-icon {
+  padding: 0.5rem 0.5rem 0.5rem 1rem !important;
+  align-items: center;
+  display: flex;
+}
+
+:host .small .mat-icon ::ng-deep svg {
+  height: 2rem;
+  width: 2rem;
+}

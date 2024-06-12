@@ -1,0 +1,46 @@
+.app-header {
+  height: 6rem;
+  background: #FFFFFF;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid #00B0F0;
+}
+
+.app-content {
+  height: calc(100vh - 6rem);
+}
+
+.app-footer {
+  height: 3rem;
+  background: #00B0F0;
+}
+
+.logo {
+  font-size: 2.5rem;
+}
+
+:host .menu-options ::ng-deep .icon {
+  color: #00B0F0;
+  cursor: pointer;
+}
+
+.sidenav-list {
+  height: calc(100vh - 6rem - 2px);
+  width: 20rem;
+  background: #1E4959;
+}
+
+mat-drawer {
+  overflow-scrolling: unset;
+}
+
+.sidenav-content {
+  padding: 2.25rem;
+}
+
+.hidden{
+  display: none;
+}

@@ -1,0 +1,38 @@
+<div class="component-wrapper">
+  <div class="form-heading">
+    Login
+  </div>
+  <form
+    class="login-form"
+    [formGroup]="form"
+  >
+    <app-text-input
+      class="text-input"
+      [parentFormGroup]="form"
+      controlName="username"
+      placeholder="User Name"
+      label="Username"
+      (checkForErrors)="checkForErrors($event)"
+      [error]="errorMessages['username']"
+    ></app-text-input>
+    <app-password-input
+      class="password-input"
+      [parentFormGroup]="form"
+      controlName="password"
+      placeholder="Password"
+      label="Password"
+      (checkForErrors)="checkForErrors($event)"
+      [displayRedirectLink]="false"
+      [error]="errorMessages['password']"
+      redirectLink="/reset-password/username"
+    ></app-password-input>
+    <app-primary-button
+      class="action-panel mt-[2.4rem]"
+      (handleClick)="login()"
+      [isDisabled]="form.invalid"
+      [isLoading]="loading"
+    >
+      SIGN IN
+    </app-primary-button>
+  </form>
+</div>

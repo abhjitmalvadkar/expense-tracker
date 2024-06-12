@@ -1,0 +1,11 @@
+.button {
+  background: #FFFFFF;
+  color: #00B0F0;
+  height: 3.4rem;
+  border: 0.1rem solid #00B0F0;
+}
+
+.button.disabled {
+  background: #D6ECBB;
+  color: #FFFFFF;
+}

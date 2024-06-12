@@ -1,0 +1,44 @@
+:host ::ng-deep .mdc-label {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+:host ::ng-deep .mat-mdc-radio-group {
+  width: 35rem;
+  display: block;
+}
+
+.radio-button {
+  padding: 0;
+  white-space: unset;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+:host ::ng-deep .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__inner-circle,
+:host ::ng-deep .mdc-radio__native-control:enabled:checked + .mdc-radio__background .mdc-radio__inner-circle {
+  border-color: #00B0F0 !important;
+}
+
+:host ::ng-deep .mdc-radio__native-control:enabled:checked + .mdc-radio__background .mdc-radio__outer-circle,
+:host ::ng-deep .mdc-radio__native-control:enabled:not(:checked) + .mdc-radio__background .mdc-radio__outer-circle {
+  border-width: 0.05rem;
+  border-color: #00B0F0 !important;
+}
+
+:host .radio-button {
+  --mdc-radio-selected-focus-icon-color: transparent !important;
+  --mdc-radio-selected-hover-icon-color: transparent !important;
+  --mdc-radio-selected-icon-color: transparent !important;
+  --mdc-radio-selected-pressed-icon-color: transparent !important;
+  --mat-radio-checked-ripple-color: transparent !important;
+  --mat-mdc-radio-ripple-color: transparent !important;
+  --mat-mdc-radio-checked-ripple-color: transparent !important;
+}
+
+:host ::ng-deep .mdc-radio-radio-outer-circle {
+  border-color: red !important;
+}

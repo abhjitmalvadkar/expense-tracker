@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Expense Tracker</title>
+  <base href="/">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <link rel="icon"
+        type="image/x-icon"
+        href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+
+  <script type="text/javascript"
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+<div id="loader">
+  <style>
+    #loader {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    #loader-container {
+      width: 20rem;
+      height: 20rem;
+      color: rgba(0, 0, 0, 0.7);
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      -webkit-animation: borderScale 1s infinite ease-in-out;
+      animation: borderScale 1s infinite ease-in-out;
+    }
+
+    #loadingText {
+      font-family: 'Raleway', sans-serif;
+      font-weight: bold;
+      font-size: 3rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @-webkit-keyframes borderScale {
+      0% {
+        border: 0.5rem solid #00B0F0;
+      }
+      50% {
+        border: 2.5rem solid #00B0F0;
+      }
+      100% {
+        border: 0.5rem solid #00B0F0;
+      }
+    }
+
+    @keyframes borderScale {
+      0% {
+        border: 0.5rem solid #00B0F0;
+      }
+      50% {
+        border: 2.5rem solid #00B0F0;
+      }
+      100% {
+        border: 0.5rem solid #00B0F0;
+      }
+    }
+  </style>
+  <div id="loader-container">
+    <p id="loadingText">Loading</p>
+  </div>
+</div>
+<app-root></app-root>
+</body>
+</html>

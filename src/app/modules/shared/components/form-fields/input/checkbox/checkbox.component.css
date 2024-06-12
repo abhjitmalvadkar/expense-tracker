@@ -1,0 +1,11 @@
+.checkbox-list-section {
+  margin-bottom: 1.3rem;
+}
+
+.mat-mdc-form-field-error {
+  margin-top: -1.3rem;
+  height: 1.3rem;
+  line-height: 1.3rem;
+  font-size: 1rem;
+  color: #FF0000;
+}

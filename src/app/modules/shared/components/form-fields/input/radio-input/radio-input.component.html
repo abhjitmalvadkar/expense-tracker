@@ -1,0 +1,22 @@
+<div
+  *ngIf="parentFormGroup &&
+          parentFormGroup.controls &&
+          parentFormGroup.controls[this.controlName] && options?.length"
+  [formGroup]="parentFormGroup"
+  class="flex flex-col w-full"
+>
+  <mat-radio-group
+    class="form-field radio-group w-full"
+    [formControlName]="controlName"
+  >
+    <mat-radio-button
+      [class.vertical]="vertical"
+      class="radio-button w-full"
+      *ngFor="let option of options"
+      [value]="option.key"
+    >
+      {{option.value || option.label}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <mat-error *ngIf="error">{{error}}</mat-error>
+</div>

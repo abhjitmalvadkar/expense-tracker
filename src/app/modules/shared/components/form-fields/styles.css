@@ -1,0 +1,93 @@
+:host .required-mark {
+  color: #FF0000;
+}
+
+:host .form-field {
+  width: 100%;
+}
+
+:host .form-field-label {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  letter-spacing: -0.02rem;
+  margin-bottom: 0.4rem;
+  font-weight: 400;
+  color: #373E46;
+}
+
+:host .form-field ::ng-deep .input,
+:host .form-field ::ng-deep .select,
+:host .form-field ::ng-deep .selectSingle {
+  font-size: 1.4rem;
+  line-height: 3.6rem;
+}
+
+:host .form-field ::ng-deep div[class^='mdc-notched-outline__'],
+:host .form-field.mat-focused ::ng-deep div[class^='mdc-notched-outline__'] {
+  border-color: #C2C1D5;
+}
+
+:host .form-field.mat-form-field-invalid ::ng-deep div[class^='mdc-notched-outline__'],
+:host .form-field.mat-focused.mat-form-field-invalid ::ng-deep div[class^='mdc-notched-outline__'] {
+  border-color: #FF0000;
+}
+
+:host .form-field ::ng-deep .mat-mdc-form-field-infix {
+  width: unset;
+  padding: 0;
+  height: 3.6rem;
+  min-height: unset;
+}
+
+:host .form-field ::ng-deep .mat-mdc-form-field-flex {
+  height: 3.6rem;
+}
+
+:host .form-field ::ng-deep .mat-mdc-form-field-error-wrapper {
+  height: 1.3rem;
+}
+
+:host .form-field ::ng-deep .mat-mdc-form-field-error {
+  height: 1.3rem;
+  line-height: 1.3rem;
+  font-size: 1rem;
+  color: #FF0000;
+}
+
+:host .form-field ::ng-deep .mat-mdc-form-field-bottom-align::before {
+  height: unset;
+}
+
+:host .form-field.mat-form-field-invalid ::ng-deep input::placeholder {
+  color: #FF0000;
+  opacity: 1;
+}
+
+:host .form-field-label.error {
+  color: #FF0000;
+}
+
+:host .form-field ::ng-deep .suffix-icon-section {
+  padding: 0.5rem;
+}
+
+:host .form-field ::ng-deep .mat-mdc-form-field-icon-suffix {
+  padding: 1rem;
+}
+
+:host .form-field ::ng-deep .mat-icon {
+  padding: 0 0 0 1.2rem;
+}
+
+:host input::placeholder {
+  color: #AFB1B5 !important;
+}
+
+:host::ng-deep .mdc-checkbox__ripple {
+  display: none;
+}
+
+:host ::ng-deep .mdc-text-field--disabled {
+  background-color: rgba(234, 234, 234, 0.5);
+}
+

@@ -1,0 +1,9 @@
+.confirmation-dialog {
+  min-width: 35vw;
+  padding: 6rem 5rem 7rem 5rem;
+}
+
+.message {
+  font-size: 3.5rem;
+  white-space: pre-line;
+}

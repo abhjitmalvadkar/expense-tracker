@@ -1,0 +1,10 @@
+<app-authenticated-wrapper
+  *ngIf="isAuthenticated; else unauthenticated"
+>
+  <app-internal-page-not-found></app-internal-page-not-found>
+</app-authenticated-wrapper>
+<ng-template #unauthenticated>
+  <app-unauthenticated-wrapper>
+    <app-internal-page-not-found></app-internal-page-not-found>
+  </app-unauthenticated-wrapper>
+</ng-template>

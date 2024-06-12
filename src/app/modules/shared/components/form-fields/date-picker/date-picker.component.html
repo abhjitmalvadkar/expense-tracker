@@ -1,0 +1,45 @@
+<div
+  *ngIf="parentFormGroup.controls[controlName]"
+  class="font-work-sans font-regular"
+>
+  <div
+    *ngIf="label"
+    class="form-field-label {{type}}"
+  >
+    {{label}}
+    <span
+      *ngIf="isRequired"
+      class="required-mark"
+    >*</span>
+  </div>
+  <mat-form-field
+    [formGroup]="parentFormGroup"
+    [ngClass]="type ? 'small' : ''"
+    appearance="outline"
+    class="form-field w-full"
+    hideRequiredMarker
+  >
+    <input
+      #input
+      [disabled]="isDisabled"
+      [formControlName]="controlName"
+      [matDatetimepicker]="dts"
+      [max]="max"
+      [min]="min"
+      [required]="isRequired"
+      autocomplete="false"
+      class="input {{type}} date-input"
+      date
+      matInput
+      placeholder="{{placeholder}}"
+    >
+    <mat-icon matPrefix
+              matRipple
+              svgIcon="calender"></mat-icon>
+    <mat-datetimepicker #dts
+                        [openOnFocus]="true"
+                        [timeInterval]="5"
+                        type="date"></mat-datetimepicker>
+    <mat-error *ngIf="error">{{error}}</mat-error>
+  </mat-form-field>
+</div>

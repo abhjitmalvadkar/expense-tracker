@@ -1,0 +1,98 @@
+<div
+  *ngIf="parentFormGroup.controls[controlName]"
+  class="font-work-sans font-regular"
+>
+  <div
+    *ngIf="label"
+    [class.error]="!!error && !isDisabled"
+    class="form-field-label"
+  >
+    {{ label }}
+    <span
+      *ngIf="isRequired"
+      class="required-mark"
+    >*</span>
+  </div>
+  <div>
+    <mat-form-field
+      [formGroup]="parentFormGroup"
+      [ngClass]="{
+        'enabled-clear-selection': enableClearSelection &&
+                                   parentFormGroup.controls[controlName].value &&
+                                   parentFormGroup.controls[controlName].status !== 'DISABLED'
+      }"
+      appearance="outline"
+      class="form-field w-full"
+      hideRequiredMarker
+    >
+      <mat-select
+        #select
+        [formControlName]="controlName"
+        [multiple]="enableMultiple"
+        [ngClass]="{
+            'enabled-clear-selections': (parentFormGroup.controls[controlName].status !== 'DISABLED') &&
+            (enableClearSelection && parentFormGroup.getRawValue()[controlName])
+          }"
+        [panelClass]="optionsPanelClassName"
+        [placeholder]="placeholder"
+        class="select"
+      >
+        <mat-option
+          *ngIf="loading; else loaded"
+          class="loading"
+          disabled
+        >
+          <mat-spinner
+            [diameter]="20"
+            class="dropdown-loader"
+            mode="indeterminate"
+          >
+          </mat-spinner>
+        </mat-option>
+        <ng-template #loaded>
+          <div
+            *ngIf="!!selectAllValue && enableMultiple"
+          >
+            <mat-checkbox
+              (change)="toggleSelection($event)"
+              (click)="$event.stopPropagation()"
+              [checked]="isChecked()"
+              [indeterminate]="isIndeterminate()"
+              class="mat-option select-all-option"
+            >
+              {{ selectAllValue }}
+            </mat-checkbox>
+          </div>
+          <div *ngIf="options?.length; else noData">
+            <mat-option
+              *ngFor="let option of options; let i = index"
+              [value]="option.key || option.id"
+              class="dropdown-option"
+            >
+              {{ option.value || option.label }}
+            </mat-option>
+          </div>
+          <ng-template #noData>
+            <mat-option class="no-data"
+                        disabled>
+              No options available
+            </mat-option>
+          </ng-template>
+        </ng-template>
+      </mat-select>
+      <mat-icon
+        (click)="clearSelection($event)"
+        *ngIf="(parentFormGroup.controls[this.controlName].status !== 'DISABLED') &&
+            (
+              (!enableMultiple && enableClearSelection && parentFormGroup.getRawValue()[controlName]) ||
+              (enableMultiple && enableClearSelection && parentFormGroup.getRawValue()[controlName].length)
+            )"
+        class="clear-selection text-palo-verde"
+        matSuffix
+        matTooltip="Clear"
+      >close
+      </mat-icon>
+      <mat-error *ngIf="error">{{ error }}</mat-error>
+    </mat-form-field>
+  </div>
+</div>

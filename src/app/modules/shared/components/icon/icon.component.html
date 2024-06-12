@@ -1,0 +1,19 @@
+<mat-icon
+  *ngIf="svgIcon; else materialIcon"
+  [matBadge]="badgeValue"
+  [ngStyle]="{
+    'vertical-align': 'middle'
+  }"
+  [svgIcon]="svgIcon"
+  class="icon svg-icon {{cssClass}}"
+  matBadgeColor="warn"
+  aria-hidden="false"
+></mat-icon>
+<ng-template #materialIcon>
+  <mat-icon
+    [matBadge]="badgeValue"
+    class="icon material-icon {{cssClass}}"
+    matBadgeColor="warn"
+    aria-hidden="false"
+  >{{icon}}</mat-icon>
+</ng-template>

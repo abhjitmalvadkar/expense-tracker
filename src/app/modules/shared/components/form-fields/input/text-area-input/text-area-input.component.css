@@ -1,0 +1,55 @@
+.form-field,
+:host .form-field ::ng-deep .mat-mdc-form-field-flex,
+:host .form-field ::ng-deep .mat-mdc-form-field-infix {
+  height: auto !important;
+  width: 100%;
+}
+
+:host .form-field ::ng-deep .mat-mdc-text-field-wrapper {
+  padding: 0.5rem !important;
+}
+
+.text-area {
+  resize: none !important;
+}
+
+textarea::-webkit-scrollbar {
+  width: 1rem;
+  cursor: auto !important;
+}
+
+/* Track */
+textarea::-webkit-scrollbar-track {
+  border-radius: 27px;
+  background: rgba(213, 213, 213, 0.7);
+  cursor: auto !important;
+}
+
+/* Handle */
+textarea::-webkit-scrollbar-thumb {
+  background: #FFFFFF;
+  border-radius: 27px;
+  border: 1px solid #00B0F0;
+  height: 70%;
+  cursor: auto !important;
+}
+
+:host .form-field ::ng-deep .mat-mdc-form-field-infix {
+  padding: 0 1rem;
+}
+
+/****************  Type Small Styling  ****************/
+
+:host .form-field.small ::ng-deep .mat-mdc-form-field-flex {
+  height: 5.8rem !important;
+}
+
+:host .form-field.small ::ng-deep .mat-mdc-input-element {
+  height: 5.8rem !important;
+}
+
+:host .form-field.small ::ng-deep .mat-mdc-form-field-infix {
+  width: unset;
+  padding: 0;
+  min-height: 5.8rem !important;
+}

@@ -1,0 +1,36 @@
+<div
+  *ngIf="parentFormGroup &&
+          parentFormGroup.controls &&
+          parentFormGroup.controls[this.controlName]"
+>
+  <div
+    class="form-field-label mb-[0.8rem]"
+    [class.error]="!!error"
+    *ngIf="label"
+  >
+    {{label}}
+    <span
+      *ngIf="isRequired"
+      class="required-mark"
+    >*</span>
+  </div>
+  <mat-form-field
+    [formGroup]="parentFormGroup"
+    appearance="outline"
+    class="form-field"
+    hideRequiredMarker
+  >
+    <textarea
+      #textarea
+      class="text-area"
+      [formControlName]="controlName"
+      [maxlength]="maxLength"
+      rows="4"
+      matInput
+      placeholder="{{placeholder}}"
+    >
+    </textarea>
+    <mat-error *ngIf="error">{{error}}</mat-error>
+  </mat-form-field>
+
+</div>

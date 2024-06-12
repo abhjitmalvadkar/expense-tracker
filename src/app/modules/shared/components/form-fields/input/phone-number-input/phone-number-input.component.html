@@ -1,0 +1,39 @@
+<div
+  *ngIf="parentFormGroup.controls[controlName]"
+  class="font-work-sans font-regular"
+>
+  <div
+    class="form-field-label"
+    [class.error]="!!error"
+    *ngIf="label"
+  >
+    {{label}}
+    <span
+      *ngIf="isRequired"
+      class="required-mark"
+    >*</span>
+  </div>
+  <mat-form-field
+    [formGroup]="parentFormGroup"
+    appearance="outline"
+    class="form-field w-full"
+    hideRequiredMarker
+  >
+    <input
+      #input
+      class="input number-input"
+      [formControlName]="controlName"
+      matInput
+      placeholder="{{placeholder}}"
+      type="text"
+      phoneNumber
+    >
+    <mat-icon
+      class="prefix"
+      matPrefix
+      svgIcon="country-code"
+    ></mat-icon>
+
+    <mat-error *ngIf="error">{{error}}</mat-error>
+  </mat-form-field>
+</div>

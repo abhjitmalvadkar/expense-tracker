@@ -1,0 +1,12 @@
+<div class="content-container">
+  <mat-form-field
+    appearance="outline">
+    <mat-select (selectionChange)="selectCurrency($event)"
+                [ngModel]="selectedCurrency"
+                id="currency">
+      <mat-option *ngFor="let currency of currencies" [value]="currency.key">
+        {{ screenType !== 'mobile' ? currency.value1 : currency.value2 }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

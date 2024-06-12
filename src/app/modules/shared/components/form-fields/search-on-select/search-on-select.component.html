@@ -1,0 +1,118 @@
+<div
+  *ngIf="parentFormGroup.controls[controlName]"
+  class="font-work-sans font-regular"
+>
+  <div
+    *ngIf="label"
+    class="form-field-label {{type}}"
+  >
+    {{label}}
+    <span
+      *ngIf="isRequired"
+      class="required-mark"
+    >*</span>
+  </div>
+  <div>
+    <mat-form-field
+      [formGroup]="parentFormGroup"
+      [ngClass]="{
+        'enabled-clear-selection': enableClearSelection &&
+                                   parentFormGroup.controls[controlName].value &&
+                                   parentFormGroup.controls[controlName].status !== 'DISABLED',
+        'small': type
+      }"
+      appearance="outline"
+      class="form-field w-full"
+      hideRequiredMarker
+    >
+      <mat-select
+        #select
+        [formControlName]="controlName"
+        [multiple]="enableMultiple"
+        [ngClass]="{
+            'enabled-clear-selections': (parentFormGroup.controls[controlName].status !== 'DISABLED') &&
+            (enableClearSelection && parentFormGroup.getRawValue()[controlName])
+          }"
+        [panelClass]="optionsPanelClassName"
+        [placeholder]="placeholder"
+        class="select {{type}}"
+      >
+        <div
+          (scrolled)="getNext()"
+          (scrolledUp)="getPrev()"
+          [alwaysCallback]="true"
+          [infiniteScrollDistance]="scrollDistance"
+          [infiniteScrollThrottle]="throttle"
+          [infiniteScrollUpDistance]="scrollUpDistance"
+          [scrollWindow]="false"
+          class="h-full overflow-auto"
+          infinite-scroll
+        >
+          <mat-option>
+            <ngx-mat-select-search
+              [formControlName]="filterControlName"
+              [placeholderLabel]="searchPlaceholder"
+              [clearSearchInput]="false"
+              class="search remove-ripple"
+              noEntriesFoundLabel="No entry matches">
+            </ngx-mat-select-search>
+          </mat-option>
+          <mat-option
+            *ngIf="loading && isPrevLoader"
+            class="dropdown-loading"
+            disabled
+          >
+            <mat-spinner
+              [diameter]="20"
+              class="dropdown-loader"
+              mode="indeterminate"
+            >
+            </mat-spinner>
+          </mat-option>
+          <div *ngIf="options?.length">
+            <mat-option
+              *ngFor="let option of options; let i = index"
+              [ngClass]="type ? 'small' : ''"
+              [value]="option.key"
+              class="single-select-option"
+            >
+              {{option.value}}
+            </mat-option>
+          </div>
+          <mat-option
+            *ngIf="loading"
+            class="dropdown-loading"
+            disabled
+          >
+            <mat-spinner
+              [diameter]="20"
+              class="dropdown-loader"
+              mode="indeterminate"
+            >
+            </mat-spinner>
+          </mat-option>
+          <mat-option *ngIf="!options.length && !loading"
+                      class="no-data"
+                      disabled>
+            No options available
+          </mat-option>
+
+        </div>
+
+      </mat-select>
+      <mat-icon
+        (click)="clearSelection($event)"
+        *ngIf="(parentFormGroup.controls[this.controlName].status !== 'DISABLED') &&
+            (
+              (!enableMultiple && enableClearSelection && parentFormGroup.getRawValue()[controlName]) ||
+              (enableMultiple && enableClearSelection && parentFormGroup.getRawValue()[controlName]?.length)
+            )"
+        class="clear-selection text-palo-verde"
+        matSuffix
+        matTooltip="Clear"
+      >close
+      </mat-icon>
+      <mat-error *ngIf="error">{{error}}</mat-error>
+    </mat-form-field>
+  </div>
+</div>

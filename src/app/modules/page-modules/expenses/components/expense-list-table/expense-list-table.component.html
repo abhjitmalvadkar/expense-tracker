@@ -1,0 +1,94 @@
+<table
+  [dataSource]="dataSource"
+  mat-table
+>
+
+  <ng-container matColumnDef="date">
+    <th
+      *matHeaderCellDef
+      class="w-2/10"
+      mat-header-cell
+    >
+      Date
+    </th>
+    <td *matCellDef="let eachRow"
+        mat-cell>
+      <div>
+        {{ eachRow.date| date }}
+      </div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="expense">
+    <th
+      *matHeaderCellDef
+      class="w-2/10"
+      mat-header-cell
+    >
+      Expense
+    </th>
+    <td *matCellDef="let eachRow"
+        mat-cell>
+      <div>
+        {{ eachRow.expense }}
+      </div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="amount">
+    <th
+      *matHeaderCellDef
+      class="w-2/10"
+      mat-header-cell
+    >
+      Amount in {{ currencySymbolMap[selectedCurrency] }}
+    </th>
+    <td *matCellDef="let eachRow"
+        mat-cell>
+      <div>
+        {{ eachRow?.amount || 'N/A' }}
+        <span class="ml-[2rem]"> {{ currencySymbolMap[selectedCurrency] }}</span>
+      </div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th
+      *matHeaderCellDef
+      class="w-2/10"
+      mat-header-cell
+    >
+      Actions
+    </th>
+    <td *matCellDef="let eachRow"
+        mat-cell>
+      <div class="flex flex-row justify-center items-center gap-[2rem]">
+        <i
+          (click)="edit(eachRow)"
+          class="fa fa-pencil icon edit-icon"
+          matTooltip="Edit Expense"
+        ></i>
+        <i
+          (click)="delete(eachRow)"
+          class="fa fa-trash delete-icon icon"
+          matTooltip="Delete Expense"
+        ></i>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr *matHeaderRowDef="displayedColumns"
+      mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;"
+      mat-row></tr>
+  <tr *matNoDataRow
+      class="mat-row">
+    <td
+      [attr.colspan]="displayedColumns.length"
+      class="mat-cell no-data "
+    >
+      <div
+        class="flex flex-row justify-center items-center w-full"
+      >
+        {{ loading && 'Loading...' || 'No data matching the filter.' }}
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,10 @@
+.button {
+  background: #96CF52;
+  color: #FFFFFF;
+  height: 3.6rem;
+}
+
+.button.disabled {
+  background: #D6ECBB;
+  color: #FFFFFF;
+}

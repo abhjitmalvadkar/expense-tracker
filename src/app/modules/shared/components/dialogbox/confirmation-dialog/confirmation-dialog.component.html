@@ -1,0 +1,23 @@
+<div
+  class="confirmation-dialog flex flex-col space-y-[5rem]"
+>
+  <div class="message text-center">
+    <span [innerHtml]="message"></span>
+  </div>
+  <div
+    class="action-panel w-full flex flex-row justify-center items-center space-x-[10rem]"
+  >
+    <app-primary-button
+      class="submit w-[20rem]"
+      (handleClick)="handleSubmit()"
+    >
+      {{submitText}}
+    </app-primary-button>
+    <app-secondary-button
+      class="cancel w-[20rem]"
+      (handleClick)="handleCancel()"
+    >
+      {{cancelText}}
+    </app-secondary-button>
+  </div>
+</div>

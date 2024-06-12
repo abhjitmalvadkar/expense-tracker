@@ -1,0 +1,25 @@
+:host {
+  width: 100%;
+}
+
+.heading {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+:host ::ng-deep .mat-mdc-card-content {
+  padding: 0;
+}
+
+.label {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  letter-spacing: -0.02rem;
+  font-weight: 600;
+  color: #373E46;
+}
+
+.total-expense {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+}

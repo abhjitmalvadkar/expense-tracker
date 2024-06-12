@@ -1,0 +1,55 @@
+<div class="page-wrapper">
+  <div class="heading">
+    {{ data['expenseData'] ? 'Edit' : 'Add' }} Expense
+  </div>
+  <form class="flex flex-col px:-[12rem] lg:px-[15rem]">
+    <div class="row flex flex-row justify-center items-center gap-[2rem]">
+      <div class="label w-1/3 flex justify-end">
+        Date
+      </div>
+      <app-date-picker
+        (checkForErrors)="checkForErrors($event)"
+        [error]="errorMessages['date']"
+        [parentFormGroup]="form"
+        class="input w-2/3"
+        controlName="date"
+        placeholder="Select a date"
+      ></app-date-picker>
+    </div>
+    <div
+      class="row flex flex-row justify-center items-center gap-[2rem]"
+    >
+      <div class="label w-1/3 flex justify-end">
+        Expense
+      </div>
+      <app-text-input
+        [error]="errorMessages['expense']"
+        [parentFormGroup]="form"
+        class="input w-2/3"
+        controlName="expense"
+        placeholder="Enter Expense"
+      ></app-text-input>
+    </div>
+    <div class="row flex flex-row justify-center items-center gap-[2rem]">
+      <div class="label w-1/3 flex justify-end">
+        Amount
+      </div>
+      <app-number-input
+        [error]="errorMessages['amount']"
+        [parentFormGroup]="form"
+        [suffixIcon]="currencySymbolMap[1]"
+        class="input w-2/3"
+        controlName="amount"
+        placeholder="Enter Amount"
+      ></app-number-input>
+    </div>
+  </form>
+  <div class="action-section flex flex-row justify-center items-center">
+    <app-primary-button
+      (handleClick)="save()"
+      class="w-1/3"
+    >
+      Save
+    </app-primary-button>
+  </div>
+</div>

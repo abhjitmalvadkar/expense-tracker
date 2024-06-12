@@ -1,0 +1,48 @@
+<div
+  *ngIf="parentFormGroup.controls[controlName]"
+  class="font-work-sans font-regular"
+>
+  <div
+    class="form-field-label"
+    [class.error]="!!error"
+    *ngIf="label"
+  >
+    {{label}}
+    <span
+      *ngIf="isRequired"
+      class="required-mark"
+    >*</span>
+  </div>
+  <mat-form-field
+    [formGroup]="parentFormGroup"
+    appearance="outline"
+    class="form-field w-full"
+    hideRequiredMarker
+  >
+    <mat-icon
+      *ngIf="prefixIcon"
+      class="prefix"
+      matPrefix
+      svgIcon="{{prefixIcon}}"
+    ></mat-icon>
+    <mat-icon
+      *ngIf="suffixIcon"
+      class="suffix"
+      matSuffix
+      svgIcon="{{suffixIcon}}"
+    ></mat-icon>
+    <input
+      #input
+      class="input number-input"
+      [formControlName]="controlName"
+      [max]="max"
+      [maxlength]="maxLength"
+      [min]="min"
+      matInput
+      placeholder="{{placeholder}}"
+      type="text"
+      onlyDigit
+    >
+    <mat-error *ngIf="error">{{error}}</mat-error>
+  </mat-form-field>
+</div>
