@@ -26,6 +26,13 @@ const routes: Routes = [
       import('./modules/page-modules/login/login.module').then((m) => m.LoginModule),
   },
   {
+    path: 'register',
+    canActivate: [unauthenticatedGuard],
+    component: UnauthenticatedWrapperComponent,
+    loadChildren: () =>
+      import('./modules/page-modules/register-user/register-user.module').then((m) => m.RegisterUserModule),
+  },
+  {
     path: 'expenses',
     canActivate: [authenticatedGuard],
     component: AuthenticatedWrapperComponent,
