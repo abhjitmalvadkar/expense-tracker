@@ -464,6 +464,7 @@ body:not(.sm):not(.xs) .panel-width-100 .cdk-dialog-container {
   font-size: 1.2rem !important;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5) !important;
   max-width: unset !important;
+  text-align: left !important;
 }
 
 .mdc-tooltip {

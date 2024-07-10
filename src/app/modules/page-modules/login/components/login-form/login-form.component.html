@@ -9,11 +9,11 @@
     <app-text-input
       class="text-input"
       [parentFormGroup]="form"
-      controlName="username"
-      placeholder="User Name"
+      controlName="email"
+      placeholder="Email"
       label="Username"
       (checkForErrors)="checkForErrors($event)"
-      [error]="errorMessages['username']"
+      [error]="errorMessages['email']"
     ></app-text-input>
     <app-password-input
       class="password-input"
@@ -32,7 +32,7 @@
       [isDisabled]="form.invalid"
       [isLoading]="loading"
     >
-      SIGN IN
+      Log In
     </app-primary-button>
   </form>
 </div>

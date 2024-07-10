@@ -4,3 +4,11 @@ export const email = {
     max: 100
   }
 };
+
+export const password = {
+  regex: new RegExp('^(?=.*[A-Z])(?=.*[!@#$%^&*()\\\\\/\\[\\]\\-_=+{}|?>.<,:;~`\'])(?=.*[0-9])(?=.*[a-z]).{8,20}$'),
+  length: {
+    min: 8,
+    max: 20
+  }
+};

@@ -12,13 +12,14 @@ import {AbstractControl, FormGroup} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {CommonService} from "../../../../services/common.service";
 import {Router} from "@angular/router";
+import * as Validation from '../../../../constants/validation.constants'
 
 @Component({
   selector: 'app-password-input',
   templateUrl: './password-input.component.html',
   styleUrls: ['../../styles.css', './password-input.component.css']
 })
-export class PasswordInputComponent  {
+export class PasswordInputComponent {
   @ViewChild('input') input: ElementRef | undefined;
 
   @Input() label: string = '';
@@ -31,12 +32,24 @@ export class PasswordInputComponent  {
   @Input() minLength: string | number = 8;
   @Input() redirectLink: string;
   @Input() displayRedirectLink: boolean = false;
+  @Input() displayInfoIcon: boolean = false;
   @Output() checkForErrors = new EventEmitter();
 
   showPassword = false;
   suffixIcon = 'eye';
 
   fieldSubscription: Subscription | undefined;
+
+  validation = Validation;
+
+  tooltipText = `Password must contain --
+     \n \u2022 Minimum ${this.validation.password.length.min} characters.
+     \n \u2022 Maximum ${this.validation.password.length.max} characters.
+     \n \u2022 1 lowercase character.
+     \n \u2022 1 uppercase character.
+     \n \u2022 1 numeric character.
+     \n \u2022 1 special character.
+     \n \u2022 No spaces.`
 
   isRequired: boolean = false;
   isDisabled: boolean = false;

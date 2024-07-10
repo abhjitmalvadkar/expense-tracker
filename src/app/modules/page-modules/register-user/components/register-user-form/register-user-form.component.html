@@ -1,0 +1,54 @@
+<div class="component-wrapper">
+  <div class="form-heading">
+    Register User
+  </div>
+  <form
+    class="register-user-form"
+    [formGroup]="form"
+  >
+    <app-text-input
+      class="text-input"
+      [parentFormGroup]="form"
+      controlName="userName"
+      placeholder="Enter Name"
+      label="Name"
+      (checkForErrors)="checkForErrors($event)"
+      [error]="errorMessages['userName']"
+    ></app-text-input>
+    <app-text-input
+      class="text-input"
+      [parentFormGroup]="form"
+      controlName="email"
+      placeholder="Enter email"
+      label="Email"
+      (checkForErrors)="checkForErrors($event)"
+      [error]="errorMessages['email']"
+    ></app-text-input>
+    <app-password-input
+      class="password-input"
+      [parentFormGroup]="form"
+      controlName="password"
+      placeholder="Password"
+      label="Password"
+      (checkForErrors)="checkForErrors($event)"
+      [error]="errorMessages['password']"
+      [displayInfoIcon]="true"
+    ></app-password-input>
+    <app-password-input
+      class="password-input"
+      [parentFormGroup]="form"
+      controlName="confirmPassword"
+      placeholder="Confirm Password"
+      label="Confirm Password"
+      (checkForErrors)="checkForErrors($event)"
+      [error]="errorMessages['confirmPassword']"
+    ></app-password-input>
+    <app-primary-button
+      class="action-panel mt-[2.4rem]"
+      (handleClick)="register()"
+      [isLoading]="loading"
+    >
+      Register
+    </app-primary-button>
+  </form>
+</div>

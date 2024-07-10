@@ -3,10 +3,11 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import * as fromRoot from "../../../../../state/app.state";
 import {CommonService} from "../../../../shared/services/common.service";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {LoginRequest} from "../../core/login.actions";
 import {Subject, takeUntil} from "rxjs";
 import {loading} from "../../core/login.selectors";
+import * as Validation from '../../../../shared/constants/validation.constants';
 
 @Component({
   selector: 'app-login-form',
@@ -14,30 +15,29 @@ import {loading} from "../../core/login.selectors";
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
-  private readonly onDestroy: Subject<any> = new Subject<any>();
-
   errorMessages: any = {};
   loading: boolean = false;
-
   errorMessageMap = {
-    username: {
-      required: 'This field is required.'
+    email: {
+      required: 'This field is required.',
+      pattern: 'Invalid email address'
     },
     password: {
       required: 'This field is required.'
     }
   }
-
+  validation = Validation;
   form = new FormGroup({
-    username: new FormControl({
+    email: new FormControl({
       value: '',
       disabled: false
-    }, [Validators.required]),
+    }, [Validators.required, Validators.pattern(this.validation.email.regex)]),
     password: new FormControl({
       value: '',
       disabled: false
     }, [Validators.required]),
   })
+  private readonly onDestroy: Subject<any> = new Subject<any>();
 
   constructor(
     private store: Store<fromRoot.State>,
@@ -53,10 +53,10 @@ export class LoginFormComponent {
       return;
     }
     // Get the values from the login form
-    const {username, password} = this.form.getRawValue();
+    const {email, password} = this.form.getRawValue();
 
     let payload = {
-      email: username,
+      email,
       password,
     }
     // Dispatch action
