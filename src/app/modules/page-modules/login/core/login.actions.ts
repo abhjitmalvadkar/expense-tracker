@@ -10,7 +10,7 @@ const LOGIN_REQUEST = '[login page] login requested';
 export const LoginRequest = createAction(LOGIN_REQUEST, props<{ payload: any }>());
 
 const LOGIN_SUCCESS = '[login page] login successful';
-export const LoginSuccess = createAction(LOGIN_SUCCESS);
+export const LoginSuccess = createAction(LOGIN_SUCCESS, props<any>());
 
 const LOGIN_FAILURE = '[login page] login failure';
-export const LoginFailure = createAction(LOGIN_FAILURE);
+export const LoginFailure = createAction(LOGIN_FAILURE, props<any>());

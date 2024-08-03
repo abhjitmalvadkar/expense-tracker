@@ -24,6 +24,17 @@
       (checkForErrors)="checkForErrors($event)"
       [error]="errorMessages['email']"
     ></app-text-input>
+    <app-dropdown
+      class="text-input"
+      [parentFormGroup]="form"
+      controlName="baseCurrency"
+      placeholder="Select Base Currency"
+      label="Base Currency"
+      (checkForErrors)="checkForErrors($event)"
+      [error]="errorMessages['baseCurrency']"
+      [options]="currencyFilter.list"
+      [loading]="currencyFilter.loading"
+    ></app-dropdown>
     <app-password-input
       class="password-input"
       [parentFormGroup]="form"
@@ -51,4 +62,5 @@
       Register
     </app-primary-button>
   </form>
+  <div class="link">Already a User? Click <span class="here" (click)="redirectToLogin()"> here</span> to Login</div>
 </div>

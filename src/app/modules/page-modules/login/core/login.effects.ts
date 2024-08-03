@@ -9,6 +9,7 @@ import {LoginService} from './login.service';
 import * as fromRoot from '../../../../state/app.state';
 import {CommonService} from "../../../shared/services/common.service";
 import {ActionModel} from "../../../../models/action.model";
+import {SetProfile} from "../../../shared/core/shared.actions";
 
 @Injectable()
 export class LoginEffects {
@@ -21,17 +22,26 @@ export class LoginEffects {
       mergeMap((payload: any) =>
         this.loginService.login(payload).pipe(
           map((response: any) => {
-            const accessToken: string = response.token;
+            const {data, message} = response;
+            const {profile, token} = data
+            const accessToken: string = token;
             this.commonService.setAuthenticationToken(accessToken);
-            return LoginSuccess();
+            this.store.dispatch(SetProfile({profile}));
+            return LoginSuccess({
+              message
+            });
           }),
           catchError(() => {
-            return of(LoginFailure());
+            return of(LoginFailure({}));
           }),
           tap((action: any) => {
             if (action.type === LoginSuccess.type) {
               // Code to execute on API Success Action dispatch
               this.router.navigate(['/expenses']);
+              this.commonService.notification(
+                action.message,
+                'success'
+              );
             } else if (action.type === LoginFailure.type) {
               // Code to execute on API Failure Action dispatch
             }

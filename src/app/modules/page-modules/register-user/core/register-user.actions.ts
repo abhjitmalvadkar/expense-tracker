@@ -14,3 +14,13 @@ export const RegisterUserSuccess = createAction(REGISTER_USER_SUCCESS, props<any
 
 const REGISTER_USER_FAILURE = '[register-user] update profile details failure';
 export const RegisterUserFailure = createAction(REGISTER_USER_FAILURE, props<any>());
+
+/*********** FETCH CURRENCY FILTER **************/
+const FETCH_CURRENCY_FILTER_REQUEST = '[register-user] fetch currency filter requested';
+export const FetchCurrencyFilterRequest = createAction(FETCH_CURRENCY_FILTER_REQUEST, props<any>());
+
+const FETCH_CURRENCY_FILTER_SUCCESS = '[register-user] fetch currency filter successful';
+export const FetchCurrencyFilterSuccess = createAction(FETCH_CURRENCY_FILTER_SUCCESS, props<any>());
+
+const FETCH_CURRENCY_FILTER_FAILURE = '[register-user] fetch currency filter failure';
+export const FetchCurrencyFilterFailure = createAction(FETCH_CURRENCY_FILTER_FAILURE, props<any>());

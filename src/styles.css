@@ -494,7 +494,3 @@ body:not(.sm):not(.xs) .panel-width-100 .cdk-dialog-container {
   min-height: unset !important;
   height: 4rem !important;
 }
-
-.cdk-overlay-pane {
-  width: unset !important;
-}

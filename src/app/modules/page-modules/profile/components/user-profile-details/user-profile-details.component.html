@@ -1,12 +1,13 @@
 <div class="page-wrapper p-[2rem]">
   <div class="logo-container">
     <img
-      [src]="userProfileDetails?.imageUrl"
+      [src]="userProfileDetails?.imageUrl || brokenImageUrl"
+      alt="'Profile Image"
       class="w-[20rem] h-[20rem] block border"
     >
   </div>
   <div class="user-name flex flex-row justify-start items-center gap-[1rem]">
-    {{ userProfileDetails?.name }}
+    {{ userProfileDetails?.username }}
     <span>
       <i
         (click)="edit()"
@@ -20,7 +21,7 @@
     <div class="settings-info flex flex-col gap-[1rem] w-full">
       <div class="row flex flex-row justify-start items-center gap-[1rem]">
         <div class="label">Email Address:</div>
-        <div class="value">{{ userProfileDetails?.emailId }}</div>
+        <div class="value">{{ userProfileDetails?.email }}</div>
       </div>
     </div>
   </div>
