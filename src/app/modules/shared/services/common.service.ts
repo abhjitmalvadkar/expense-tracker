@@ -179,8 +179,8 @@ export class CommonService {
     type = '',
     actionText?: string,
     duration = 1500,
-    verticalPosition: MatSnackBarVerticalPosition = 'top',
-    horizontalPosition: MatSnackBarHorizontalPosition = 'center'
+    verticalPosition: MatSnackBarVerticalPosition = 'bottom',
+    horizontalPosition: MatSnackBarHorizontalPosition = 'right'
   ) {
     this.snackBar.open(message, actionText, {
       duration,

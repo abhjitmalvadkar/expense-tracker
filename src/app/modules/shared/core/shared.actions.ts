@@ -30,3 +30,7 @@ export const FetchExchangeRatesSuccess = createAction(FETCH_EXCHANGE_RATES_SUCCE
 
 const FETCH_EXCHANGE_RATES_FAILURE = '[shared] fetch exchange rates failure';
 export const FetchExchangeRatesFailure = createAction(FETCH_EXCHANGE_RATES_FAILURE, props<any>());
+
+/*********** SET PROFILE **************/
+const SET_PROFILE = '[shared] set  profile requested';
+export const SetProfile = createAction(SET_PROFILE, props<any>());

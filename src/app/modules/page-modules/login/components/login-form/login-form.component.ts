@@ -3,11 +3,11 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import * as fromRoot from "../../../../../state/app.state";
 import {CommonService} from "../../../../shared/services/common.service";
-import {HttpClient} from "@angular/common/http";
 import {LoginRequest} from "../../core/login.actions";
 import {Subject, takeUntil} from "rxjs";
 import {loading} from "../../core/login.selectors";
 import * as Validation from '../../../../shared/constants/validation.constants';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-form',
@@ -42,7 +42,7 @@ export class LoginFormComponent {
   constructor(
     private store: Store<fromRoot.State>,
     private commonService: CommonService,
-    private http: HttpClient
+    private router: Router
   ) {
   }
 
@@ -80,6 +80,10 @@ export class LoginFormComponent {
       ...this.errorMessages,
       ...(this.commonService.checkFormValidation(this.form, this.errorMessageMap, currentField))
     };
+  }
+
+  redirectToRegister() {
+    this.router.navigate(['/register']);
   }
 
   ngOnDestroy() {

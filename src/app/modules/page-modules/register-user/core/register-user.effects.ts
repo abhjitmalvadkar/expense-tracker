@@ -8,7 +8,15 @@ import {RegisterUserService} from './register-user.service';
 import * as fromRoot from '../../../../state/app.state';
 import {CommonService} from "../../../shared/services/common.service";
 import {ActionModel} from "../../../../models/action.model";
-import {RegisterUserFailure, RegisterUserRequest, RegisterUserSuccess} from "./register-user.actions";
+import {
+  FetchCurrencyFilterFailure,
+  FetchCurrencyFilterRequest,
+  FetchCurrencyFilterSuccess,
+  RegisterUserFailure,
+  RegisterUserRequest,
+  RegisterUserSuccess
+} from "./register-user.actions";
+import {SetProfile} from "../../../shared/core/shared.actions";
 
 
 @Injectable()
@@ -23,9 +31,14 @@ export class RegisterUserEffects {
       mergeMap((payload: any) =>
         this.registerUserService.registerUser(payload).pipe(
           map((response: any) => {
-            const accessToken: string = response.token;
+            const {data, message} = response;
+            const {profile, token} = data
+            const accessToken: string = token;
             this.commonService.setAuthenticationToken(accessToken);
-            return RegisterUserSuccess({});
+            this.store.dispatch(SetProfile({profile}));
+            return RegisterUserSuccess({
+              message
+            });
           }),
           catchError(() => {
             return of(RegisterUserFailure({}));
@@ -34,7 +47,44 @@ export class RegisterUserEffects {
             if (action.type === RegisterUserSuccess.type) {
               // Code to execute on API Success Action dispatch
               this.router.navigate(['/expenses']);
+              this.commonService.notification(
+                action.message,
+                'success'
+              );
             } else if (action.type === RegisterUserFailure.type) {
+              // Code to execute on API Failure Action dispatch
+            }
+          })
+        )
+      )
+    )
+  );
+
+
+  fetchCurrencyFilter$: Observable<Action> = createEffect(() =>
+    this.actions.pipe(
+      ofType(FetchCurrencyFilterRequest),
+      map((action: ActionModel) => {
+        return action.payload;
+      }),
+      mergeMap(() =>
+        this.registerUserService.fetchCurrencyFilter().pipe(
+          map((response: any) => {
+            const {data, message} = response;
+            return FetchCurrencyFilterSuccess({
+              currencyFilterList: data,
+              message
+            });
+          }),
+          catchError(() => {
+            return of(FetchCurrencyFilterFailure({}));
+          }),
+          tap((action: any) => {
+            if (action.type === FetchCurrencyFilterSuccess.type) {
+              // Code to execute on API Success Action dispatch
+              this.commonService.notification(action.message, 'success'
+              )
+            } else if (action.type === FetchCurrencyFilterFailure.type) {
               // Code to execute on API Failure Action dispatch
             }
           })

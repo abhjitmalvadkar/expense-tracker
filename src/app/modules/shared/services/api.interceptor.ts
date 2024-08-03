@@ -60,7 +60,7 @@ export class ApiInterceptor implements HttpInterceptor {
         }
 
         if (this.commonService.getAuthenticationToken()) {
-          headers = headers.append('Authorization', 'Bearer ' + this.commonService.getAuthenticationToken());
+          headers = headers.append('Authorization', this.commonService.getAuthenticationToken());
         }
 
         requestToSend = req.clone({headers, body});
@@ -128,8 +128,8 @@ export class ApiInterceptor implements HttpInterceptor {
     this.snackBar
       .open(nextMessage, undefined, {
         duration: 1500,
-        verticalPosition: 'top',
-        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        horizontalPosition: 'right',
         panelClass: 'danger',
       })
       .afterDismissed()

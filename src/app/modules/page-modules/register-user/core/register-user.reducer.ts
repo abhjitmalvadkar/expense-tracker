@@ -1,13 +1,29 @@
 import {createReducer, on} from '@ngrx/store';
-import {ClearState, RegisterUserFailure, RegisterUserRequest, RegisterUserSuccess,} from "./register-user.actions";
+import {
+  ClearState,
+  FetchCurrencyFilterFailure,
+  FetchCurrencyFilterRequest,
+  FetchCurrencyFilterSuccess,
+  RegisterUserFailure,
+  RegisterUserRequest,
+  RegisterUserSuccess,
+} from "./register-user.actions";
 
 // State for this feature (User)
 export interface RegisterUserState {
   loading: boolean;
+  currencyFilter: {
+    list: any[];
+    loading: boolean;
+  }
 }
 
 const initialState: RegisterUserState = {
-  loading: false
+  loading: false,
+  currencyFilter: {
+    list: [],
+    loading: false
+  }
 };
 
 export const reducer = createReducer(
@@ -28,5 +44,30 @@ export const reducer = createReducer(
   on(RegisterUserFailure, (state) => ({
     ...state,
     loading: false
+  })),
+
+  // FETCH CURRENCY FILTER
+  on(FetchCurrencyFilterRequest, (state) => ({
+    ...state,
+    currencyFilter: {
+      ...initialState.currencyFilter,
+      loading: true
+    }
+  })),
+  on(FetchCurrencyFilterSuccess, (state, props) => {
+    return ({
+      ...state,
+      currencyFilter: {
+        list: props.currencyFilterList,
+        loading: false
+      }
+    })
+  }),
+  on(FetchCurrencyFilterFailure, (state) => ({
+    ...state,
+    currencyFilter: {
+      ...initialState.currencyFilter,
+      loading: false
+    }
   })),
 );

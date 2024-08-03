@@ -5,6 +5,7 @@ import {
   FetchExchangeRatesFailure,
   FetchExchangeRatesRequest,
   FetchExchangeRatesSuccess,
+  SetProfile,
   SetScreenType,
   StartLoading,
   StopLoading,
@@ -14,7 +15,10 @@ import {
 export interface SharedState {
   loading: number[],
   screenType: 'mobile' | 'tablet' | 'desktop' | '',
-  profile: any,
+  userProfile: {
+    profile: any,
+    loading: boolean
+  },
   sidenavOpenCounter: number[];
   exchangeRates: any
 }
@@ -22,7 +26,10 @@ export interface SharedState {
 const initialState: SharedState = {
   loading: [],
   screenType: '',
-  profile: null,
+  userProfile: {
+    profile: {},
+    loading: false
+  },
   sidenavOpenCounter: [],
   exchangeRates: {}
 };
@@ -72,4 +79,13 @@ export const reducer = createReducer(
     ...state,
     exchangeRates: initialState.exchangeRates
   })),
+
+  // SET PROFILE
+  on(SetProfile, (state, props) => ({
+    ...state,
+    userProfile: {
+      profile: props.profile,
+      loading: false
+    }
+  }))
 )

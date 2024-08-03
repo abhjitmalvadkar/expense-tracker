@@ -26,12 +26,12 @@ export class ProfileEffects {
       map((action: any) => {
         return action.payload;
       }),
-      mergeMap((payload) =>
-        this.userDetailsService.fetchUserDetails(payload).pipe(
+      mergeMap(() =>
+        this.userDetailsService.fetchUserDetails().pipe(
           map((response) => {
             const {data, message} = response;
             return FetchUserDetailsSuccess({
-              userDetails: data,
+              userDetails: data.user,
               message
             });
           }),
@@ -41,7 +41,6 @@ export class ProfileEffects {
           tap((action: any) => {
             if (action.type === FetchUserDetailsSuccess.type) {
               // Code to execute on API Success Action dispatch
-              this.commonService.notification('Profile Fetched Successfully!', 'success');
             } else if (action.type === FetchUserDetailsFailure.type) {
               // Code to execute on API Failure Action dispatch
 

@@ -7,9 +7,9 @@ import {RegisterUserScreenComponent} from "./screen/register-user-screen.compone
 import {ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../../shared/shared.module";
 import {StoreModule} from "@ngrx/store";
-import {reducer} from "../profile/core/profile.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {RegisterUserEffects} from "./core/register-user.effects";
+import {reducer} from "./core/register-user.reducer";
 
 
 @NgModule({

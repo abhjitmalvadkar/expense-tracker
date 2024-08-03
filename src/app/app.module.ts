@@ -6,9 +6,10 @@ import {AppComponent} from './app.component';
 import {ActionReducer, MetaReducer, StoreModule} from "@ngrx/store";
 import {localStorageSync} from "ngrx-store-localstorage";
 import {SharedModule} from "./modules/shared/shared.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {EffectsModule} from "@ngrx/effects";
+import {ApiInterceptor} from "./modules/shared/services/api.interceptor";
 
 
 export function sessionStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -36,7 +37,9 @@ const metaReducers: Array<MetaReducer<any, any>> = [sessionStorageSyncReducer];
     EffectsModule.forRoot([]),
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 

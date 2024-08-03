@@ -9,3 +9,14 @@
   text-align: center;
   margin-bottom: 2rem;
 }
+
+.link {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+.here {
+  text-decoration: underline;
+  color: #00B0F0;
+  cursor: pointer;
+}

@@ -5,9 +5,9 @@ import {Store} from "@ngrx/store";
 import * as fromRoot from "../../../../../state/app.state";
 import * as Validation from "../../../../shared/constants/validation.constants";
 import {CommonService} from "../../../../shared/services/common.service";
-import {HttpClient} from "@angular/common/http";
-import {RegisterUserRequest} from "../../core/register-user.actions";
-import {loading} from "../../core/register-user.selectors";
+import {FetchCurrencyFilterRequest, RegisterUserRequest} from "../../core/register-user.actions";
+import {currencyFilter, loading} from "../../core/register-user.selectors";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register-user-form',
@@ -39,6 +39,9 @@ export class RegisterUserFormComponent {
     },
     userName: {
       required: 'This field is required.',
+    },
+    baseCurrency: {
+      required: 'This field is required.',
     }
   }
   form = new FormGroup({
@@ -47,6 +50,7 @@ export class RegisterUserFormComponent {
       disabled: false
     }, [Validators.required, Validators.pattern(this.validation.email.regex)]),
     userName: new FormControl({value: '', disabled: false}, [Validators.required]),
+    baseCurrency: new FormControl({value: '', disabled: false}, [Validators.required]),
     password: new FormControl('', {
       validators: [
         Validators.required,
@@ -60,13 +64,21 @@ export class RegisterUserFormComponent {
       disabled: false
     }, [Validators.required]),
   }, {validators: [this.validateConfirmPassword]});
+  currencyFilter = {list: [], loading: false}
   private readonly onDestroy: Subject<any> = new Subject<any>();
 
   constructor(
     private store: Store<fromRoot.State>,
     private commonService: CommonService,
-    private http: HttpClient
+    private router: Router
   ) {
+    this.store.dispatch(FetchCurrencyFilterRequest({}))
+
+    this.store.select(currencyFilter)
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(data => {
+        this.currencyFilter = data
+      })
   }
 
   register() {
@@ -76,13 +88,14 @@ export class RegisterUserFormComponent {
       return;
     }
     // Get the values from the login form
-    const {email, password, confirmPassword, userName} = this.form.getRawValue();
+    const {email, password, confirmPassword, userName, baseCurrency} = this.form.getRawValue();
 
     let payload = {
       email,
       password,
       confirmPassword,
-      userName
+      username: userName,
+      baseCurrency
     }
     // Dispatch action
     this.store.dispatch(RegisterUserRequest({payload}));
@@ -118,6 +131,10 @@ export class RegisterUserFormComponent {
       ...this.errorMessages,
       ...(this.commonService.checkFormValidation(this.form, this.errorMessageMap, currentField))
     };
+  }
+
+  redirectToLogin() {
+    this.router.navigate(['/']);
   }
 
   ngOnDestroy() {
