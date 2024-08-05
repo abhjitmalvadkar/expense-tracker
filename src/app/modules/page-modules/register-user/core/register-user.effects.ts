@@ -82,8 +82,7 @@ export class RegisterUserEffects {
           tap((action: any) => {
             if (action.type === FetchCurrencyFilterSuccess.type) {
               // Code to execute on API Success Action dispatch
-              this.commonService.notification(action.message, 'success'
-              )
+
             } else if (action.type === FetchCurrencyFilterFailure.type) {
               // Code to execute on API Failure Action dispatch
             }

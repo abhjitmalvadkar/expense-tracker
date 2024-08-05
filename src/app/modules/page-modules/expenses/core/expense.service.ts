@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {CommonService} from "../../../shared/services/common.service";
-import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root',
@@ -40,10 +38,7 @@ export class ExpenseService {
     }
   ]
 
-  constructor(
-    private commonServices: CommonService,
-    private http?: HttpClient,
-  ) {
+  constructor() {
   }
 
   fetchExpenseList(payload: any): Observable<any> {
@@ -102,6 +97,38 @@ export class ExpenseService {
       data: {
         list: [
           ...this.expenseList
+        ]
+      }
+    });
+  }
+
+  fetchUsersList(): Observable<any> {
+    return of({
+      success: true,
+      code: 'Dummy Code ABCD1234',
+      message: 'Dummy Message',
+      data: {
+        list: [
+          {
+            key: 1,
+            value: 'User 1'
+          },
+          {
+            key: 2,
+            value: 'User 2'
+          },
+          {
+            key: 3,
+            value: 'User 3'
+          },
+          {
+            key: 4,
+            value: 'User 4'
+          },
+          {
+            key: 5,
+            value: 'User 5'
+          }
         ]
       }
     });

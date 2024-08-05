@@ -6,7 +6,7 @@
     *ngIf="label"
     class="form-field-label {{type}}"
   >
-    {{label}}
+    {{ label }}
     <span
       *ngIf="isRequired"
       class="required-mark"
@@ -38,15 +38,7 @@
         class="select {{type}}"
       >
         <div
-          (scrolled)="getNext()"
-          (scrolledUp)="getPrev()"
-          [alwaysCallback]="true"
-          [infiniteScrollDistance]="scrollDistance"
-          [infiniteScrollThrottle]="throttle"
-          [infiniteScrollUpDistance]="scrollUpDistance"
-          [scrollWindow]="false"
           class="h-full overflow-auto"
-          infinite-scroll
         >
           <mat-option>
             <ngx-mat-select-search
@@ -60,7 +52,6 @@
           <mat-option
             *ngIf="loading && isPrevLoader"
             class="dropdown-loading"
-            disabled
           >
             <mat-spinner
               [diameter]="20"
@@ -76,13 +67,12 @@
               [value]="option.key"
               class="single-select-option"
             >
-              {{option.value}}
+              {{ option.value }}
             </mat-option>
           </div>
           <mat-option
             *ngIf="loading"
             class="dropdown-loading"
-            disabled
           >
             <mat-spinner
               [diameter]="20"
@@ -92,8 +82,7 @@
             </mat-spinner>
           </mat-option>
           <mat-option *ngIf="!options.length && !loading"
-                      class="no-data"
-                      disabled>
+                      class="no-data">
             No options available
           </mat-option>
 
@@ -112,7 +101,7 @@
         matTooltip="Clear"
       >close
       </mat-icon>
-      <mat-error *ngIf="error">{{error}}</mat-error>
+      <mat-error *ngIf="error">{{ error }}</mat-error>
     </mat-form-field>
   </div>
 </div>

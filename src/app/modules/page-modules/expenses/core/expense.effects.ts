@@ -15,6 +15,9 @@ import {
   FetchExpenseListFailure,
   FetchExpenseListRequest,
   FetchExpenseListSuccess,
+  FetchUsersListFailure,
+  FetchUsersListRequest,
+  FetchUsersListSuccess,
   UpdateExpenseFailure,
   UpdateExpenseRequest,
   UpdateExpenseSuccess
@@ -178,6 +181,40 @@ export class ExpenseEffects {
               )
             } else if (action.type === DeleteExpenseFailure.type) {
               // Code to execute on API Failure Action dispatch
+            }
+          })
+        )
+      )
+    )
+  );
+
+  fetchUsersList$: Observable<Action> = createEffect(() =>
+    this.actions.pipe(
+      ofType(FetchUsersListRequest),
+      map((action: any) => {
+        return action.payload;
+      }),
+      mergeMap(() =>
+        this.expenseListService.fetchUsersList().pipe(
+          map((response) => {
+            console.log(response)
+            const {data, message} = response;
+            const {list} = data;
+            return FetchUsersListSuccess({
+              usersList: list,
+              message
+            });
+          }),
+          catchError((error) => {
+            return of(FetchUsersListFailure(error.message));
+          }),
+          tap((action: any) => {
+            if (action.type === FetchUsersListSuccess.type) {
+              // Code to execute on API Success Action dispatch
+
+            } else if (action.type === FetchUsersListFailure.type) {
+              // Code to execute on API Failure Action dispatch
+
             }
           })
         )

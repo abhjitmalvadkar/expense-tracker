@@ -43,6 +43,23 @@
         placeholder="Enter Amount"
       ></app-number-input>
     </div>
+    <div class="row flex flex-row justify-center items-center gap-[2rem]">
+      <div class="label w-1/3 flex justify-end">
+        Shared with
+      </div>
+      <app-search-on-select
+        (checkForErrors)="checkForErrors($event)"
+        [error]="errorMessages['users']"
+        [loading]="usersFilterOptions.loading"
+        [options]="usersFilterOptions.list"
+        [parentFormGroup]="form"
+        class="input w-2/3"
+        controlName="users"
+        filterControlName="searchUsers"
+        placeholder="Select an user"
+        [enableMultiple]="true"
+      ></app-search-on-select>
+    </div>
   </form>
   <div class="action-section flex flex-row justify-center items-center">
     <app-primary-button

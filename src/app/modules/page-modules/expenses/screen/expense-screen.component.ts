@@ -27,6 +27,7 @@ export class ExpenseScreenComponent implements OnInit {
   eurTotal: any;
   exchangeRates: any;
   displayedTotal: string;
+  expenseList: any;
   private readonly onDestroy: Subject<any> = new Subject<any>();
 
   constructor(
@@ -52,6 +53,7 @@ export class ExpenseScreenComponent implements OnInit {
     this.store.select(expenseInfo)
       .pipe(takeUntil(this.onDestroy))
       .subscribe(data => {
+        this.expenseList = data.list
         this.displayedTotal = data.total.toFixed(2);
         this.inrTotal = data.total.toFixed(2);
         this.usdTotal = (this.exchangeRates['USD'] * data.total).toFixed(2);

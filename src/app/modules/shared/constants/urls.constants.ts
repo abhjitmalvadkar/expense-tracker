@@ -28,5 +28,11 @@ export const v1URL = {
       method: 'get',
       url: `${v1Base}/fetchProfile`
     }
+  },
+  expenses:{
+    fetchAllExpenses:{
+      method: 'get',
+      url: `${v1Base}/expenses`
+    }
   }
 };

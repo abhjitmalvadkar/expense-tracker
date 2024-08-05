@@ -8,6 +8,19 @@
     <mat-card-content>
       <div
         class="flex flex-col gap-[2.5rem] p-[2rem] justify-center items-center"
+        *ngIf="expenseList.length === 0"
+      >
+        <div class="add-expense flex flex-col justify-center items-center" (click)="add()">
+          <div class="image-container flex flex-col justify-center items-center">
+            <img src="/assets/images/svg/checkbook.svg" alt="add-expense-image" class="image">
+            <div class="text align-middle">Click to Add Expense</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        *ngIf="expenseList.length > 0"
+        class="flex flex-col gap-[2.5rem] p-[2rem] justify-center items-center"
       >
         <app-primary-button
           (handleClick)="add()"

@@ -45,3 +45,12 @@ export const DeleteExpenseSuccess = createAction(DELETE_EXPENSE_SUCCESS, props<a
 const DELETE_EXPENSE_FAILURE = '[expense] delete expense failure';
 export const DeleteExpenseFailure = createAction(DELETE_EXPENSE_FAILURE, props<any>());
 
+/******** FETCH USERS LIST ***********/
+const FETCH_USERS_LIST_REQUEST = '[expense] fetch users list request';
+export const FetchUsersListRequest = createAction(FETCH_USERS_LIST_REQUEST, props<any>());
+
+const FETCH_USERS_LIST_SUCCESS = '[expense] fetch users list success';
+export const FetchUsersListSuccess = createAction(FETCH_USERS_LIST_SUCCESS, props<any>());
+
+const FETCH_USERS_LIST_FAILURE = '[expense] fetch users list failure';
+export const FetchUsersListFailure = createAction(FETCH_USERS_LIST_FAILURE, props<any>());
