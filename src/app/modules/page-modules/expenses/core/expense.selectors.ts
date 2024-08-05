@@ -10,3 +10,7 @@ export const expenseInfo = createSelector(
   stateData,
   (state: ExpenseState) => state.expenseInfo
 );
+export const usersList = createSelector(
+  stateData,
+  (state: ExpenseState) => state.usersList
+);

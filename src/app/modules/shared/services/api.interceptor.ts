@@ -60,7 +60,7 @@ export class ApiInterceptor implements HttpInterceptor {
         }
 
         if (this.commonService.getAuthenticationToken()) {
-          headers = headers.append('Authorization', this.commonService.getAuthenticationToken());
+          headers = headers.append('x-auth-token', this.commonService.getAuthenticationToken());
         }
 
         requestToSend = req.clone({headers, body});
@@ -68,7 +68,7 @@ export class ApiInterceptor implements HttpInterceptor {
         return next.handle(requestToSend).pipe(
           map((response) => {
             if (
-              (response['status'] && response['status'] !== 200)
+              (response['status'] && (response['status'] !== 200 && response['status'] !== 201))
             ) {
               throw response;
             }

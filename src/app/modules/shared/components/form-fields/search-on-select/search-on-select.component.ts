@@ -57,10 +57,6 @@ export class SearchOnSelectComponent implements AfterViewChecked {
   isPrevLoader: boolean = false;
   isNextLoader: boolean = false;
 
-  throttle = 300;
-  scrollDistance = 0.01;
-  scrollUpDistance = 0.01;
-
   constructor(
     private commonService: CommonService,
     private readonly changeDetectorRef: ChangeDetectorRef

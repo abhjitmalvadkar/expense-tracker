@@ -23,3 +23,31 @@
   margin-top: 2rem;
   font-size: 1.8rem;
 }
+
+.add-expense {
+  height: 68vh;
+  width: 85%;
+  border: 5px dashed #959595;
+  border-radius: 1rem;
+  cursor: pointer;
+  padding: 3rem;
+}
+
+.image-container {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(213, 211, 211, 0.5);
+  border-radius: 1rem;
+}
+
+.image {
+  height: 25rem;
+  width: 25rem;
+}
+
+.text {
+  font-size: 3.5rem;
+  opacity: 50%;
+  text-align: center;
+  word-break: break-word;
+}

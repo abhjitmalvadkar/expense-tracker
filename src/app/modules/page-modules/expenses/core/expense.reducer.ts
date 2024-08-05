@@ -10,6 +10,9 @@ import {
   FetchExpenseListFailure,
   FetchExpenseListRequest,
   FetchExpenseListSuccess,
+  FetchUsersListFailure,
+  FetchUsersListRequest,
+  FetchUsersListSuccess,
   UpdateExpenseFailure,
   UpdateExpenseRequest,
   UpdateExpenseSuccess
@@ -23,6 +26,10 @@ export interface ExpenseState {
     total: number,
     loading: boolean
   };
+  usersList: {
+    list: any[],
+    loading: boolean
+  }
 }
 
 const initialState: ExpenseState = {
@@ -32,6 +39,10 @@ const initialState: ExpenseState = {
     total: 0,
     loading: false
   },
+  usersList: {
+    list: [],
+    loading: false
+  }
 };
 
 export const reducer = createReducer(
@@ -128,6 +139,29 @@ export const reducer = createReducer(
     ...state,
     expenseInfo: {
       ...initialState.expenseInfo,
+      loading: false
+    }
+  })),
+
+  // FETCH USERS LIST
+  on(FetchUsersListRequest, (state) => ({
+    ...state,
+    usersList: {
+      ...initialState.usersList,
+      loading: true
+    }
+  })),
+  on(FetchUsersListSuccess, (state, props) => ({
+    ...state,
+    usersList: {
+      list: props.usersList,
+      loading: false
+    }
+  })),
+  on(FetchUsersListFailure, (state) => ({
+    ...state,
+    usersList: {
+      ...initialState.usersList,
       loading: false
     }
   })),

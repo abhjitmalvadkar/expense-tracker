@@ -39,13 +39,12 @@
       class="w-2/10"
       mat-header-cell
     >
-      Amount in {{ currencySymbolMap[selectedCurrency] }}
+      Amount
     </th>
     <td *matCellDef="let eachRow"
         mat-cell>
       <div>
         {{ eachRow?.amount || 'N/A' }}
-        <span class="ml-[2rem]"> {{ currencySymbolMap[selectedCurrency] }}</span>
       </div>
     </td>
   </ng-container>

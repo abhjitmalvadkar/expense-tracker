@@ -1,11 +1,12 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Subject} from "rxjs";
+import {debounceTime, Subject, takeUntil} from "rxjs";
 import {CommonService} from "../../../../shared/services/common.service";
 import {Store} from "@ngrx/store";
 import * as fromRoot from "../../../../../state/app.state";
-import {AddNewExpenseRequest, UpdateExpenseRequest} from "../../core/expense.actions";
+import {AddNewExpenseRequest, FetchUsersListRequest, UpdateExpenseRequest} from "../../core/expense.actions";
 import {v4 as uuidv4} from 'uuid';
+import {usersList} from "../../core/expense.selectors";
 
 @Component({
   selector: 'app-add-or-update-expense',
@@ -31,6 +32,9 @@ export class AddOrUpdateExpenseComponent implements OnInit {
     },
     amount: {
       required: 'Required'
+    },
+    users: {
+      required: 'Required'
     }
   }
 
@@ -42,10 +46,16 @@ export class AddOrUpdateExpenseComponent implements OnInit {
     }, [Validators.required]),
     expense: new FormControl({value: null, disabled: false}, [Validators.required]),
     amount: new FormControl({value: null, disabled: false}, [Validators.required]),
+    users: new FormControl({value: null, disabled: false}, [Validators.required]),
+    searchUsers: new FormControl({value: null, disabled: false}, [Validators.required]),
   });
   currency: number;
   exchangeRates: any;
-
+  usersFilterOptions = {
+    list: [],
+    loading: false,
+  };
+  originalUsersFilterOptionsList: any[];
   private readonly onDestroy: Subject<any> = new Subject<any>();
 
   constructor(
@@ -53,10 +63,20 @@ export class AddOrUpdateExpenseComponent implements OnInit {
     private store: Store<fromRoot.State>,
     private cdRef: ChangeDetectorRef,
   ) {
+    this.store.dispatch(FetchUsersListRequest({}));
+
 
   }
 
   ngOnInit() {
+    this.store.select(usersList)
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(data => {
+        this.originalUsersFilterOptionsList = data?.list;
+        this.usersFilterOptions.list = data?.list;
+        this.usersFilterOptions.loading = data?.loading;
+      })
+
     this.selectedClient = this.data?.selectedClient || -1;
     if (this.data?.expenseData) {
       this.isEdit = true;
@@ -69,6 +89,20 @@ export class AddOrUpdateExpenseComponent implements OnInit {
       }, {emitEvent: false});
       this.cdRef.detectChanges();
     }
+
+    this.form.controls.searchUsers.valueChanges
+      .pipe(debounceTime(100), takeUntil(this.onDestroy))
+      .subscribe((data) => {
+        if (data) {
+          this.usersFilterOptions.list = this.originalUsersFilterOptionsList.filter(
+            (item) => {
+              return item?.value?.toLowerCase().includes(data.toLowerCase());
+            }
+          );
+        } else {
+          this.usersFilterOptions.list = this.originalUsersFilterOptionsList;
+        }
+      });
   }
 
 
